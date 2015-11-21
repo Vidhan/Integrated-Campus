@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html style="height:100%">
+ 
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Campus</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo16.png" />
+    
+    <!--                       CSS                       -->
+         
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap_css/bootstrap.css" type="text/css" media="screen" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+            
+    
+  </head>
+  
+  <body>
+    
+        <!-- Navbar -->
+        <div class="row-fluid">
+            <div class="navbar  navbar-inverse">
+                <div class="navbar-inner" id="collapse" style="padding-left:10px">
+                    <a class="brand" href="#">Integrated Campus</a>
+                    <a class="brand" href="#">
+                    
+                    </a>
+                    <ul class="nav">
+                        <li class="divider-vertical"></li>
+                        
+                        <li class="dropdown">
+                            <a class="dropdown-toggle active" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                                Courses <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" id="courseList" aria-labelledby="dLabel">
+
+                              <!-- Generate by javascript -->
+                            </ul>
+
+                        </li>
+                        <li><a href="#">Previous Courses</a></li>
+                        <!-- <li><a href="#">Attendance</a></li> -->
+                        <li><a href="tt_faculty.html">Timetable</a></li>
+                        
+                        <li class="divider-vertical"></li>
+                    </ul>
+                    <ul class="nav pull-right" style="padding-right:50px">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="navName" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                                ---<b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a href="home_student.html">Home</a></li>
+                                <!-- <li><a href="#">Edit Profile</a></li> -->
+                                <li><a href="#changePassModal" data-toggle="modal">Change Password</a></li>
+                                <li><a href="javascript:logout()">Logout</a></li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <form  method = "post" name = "selectyear" class="form-inline"> 
+          <select id = "selectyear" name = "year">
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+          </select>
+          
+          <select id = "selectsem">
+            <option value = "winter">Winter</option>2013
+            <option value = "autumn">Autumn</option>2013
+          </select>
+        </form>
+       <!-- <div id = "prevcourses"></div>-->
+        
+
+        <div >
+            <button class = "btn btn-primary" id = "yearsem" onclick="loadFacultyPrevCoursesname()"> Select</button>
+        </div >
+        <br>
+        <ul id ="courses">
+
+        </ul>
+        
+        <div class="row-fluid">
+            <!-- Main Content -->
+            <div class = "span10" id="maincontent" style="padding:10px">
+                <div style="width:100%" align="center" id = "loading"><h4><img src="img/loading.gif"></h4></div>
+                <div id="main-content">
+                  
+                          
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                      <div class="row-fluid">
+                    <!-- Course Headings -->
+                    <div class="span4"><h4><span id="cName">Course Name</span>: <span id="cCode">Course Code</span></h4></div>
+                    <div class="span4 offset4" > <h5><span id="cCredit">Credit-Structure</span></h5></div>
+                  </div>
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner" id="cDescription">
+                      <br><br><br>Description<br><br><br>--
+                    </div>
+                  </div>
+
+                  <div class="tabbable">
+                    <ul id="myTab" class="nav nav-tabs nav-pills">
+                      <li class="active"><a href="#material" data-toggle="tab">Course Material</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                      
+                      
+                      <!-- Course Material -->
+                      <div class="tab-pane fade active in" id="material">
+                        <!-- Generate by javascript -->
+                        <div id="fileList"></div>
+                        
+                      </div>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Notice Board -->
+              <div class="span2 text-center" id="notice" style="background-color:#f8f8f8; color:#ccc; height:80%; position:fixed;top:50px; right:10px; border-radius:10px; overflow-y:scroll">
+                  <div style="background-color:#f2f2f2; border-radius:10px">Notice Board</div>
+                  <div id="notifications">
+                    <br><br><br><br>Loading Notice Board
+                </div>
+            </div>   
+
+        </div>
+
+        <br><br><br><br><br>
+        <!-- Footer -->
+        <footer class="row-fluid navbar-fixed-bottom" style="background-color:#222;color:#ccc">
+            <div class="span12 text-center">
+                All Rights reserved with the Integrated Campus,Team-2 2010 Batch DA-IICT Gandhinagar
+            </div>
+        </footer>
+
+
+        <!-- Change Pass Modal -->
+        <div id="changePassModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h4 id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body" align="center">
+                <form>
+                    <input type="password" name="oldPassword" placeholder="Old Password"><br>
+                    <input type="password" name="newPassword" placeholder="New Password"><br>
+                    <input type="password" name="confPassword" placeholder="Confirm Password">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <a class="btn btn-primary" href="#">Change</a>
+            </div>
+        </div>
+
+        <!--                       Javascripts                       -->
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <!-- Functions -->
+        <script type="text/javascript" src="scripts/functions.js"></script>       
+    <!-- Bootstrap Javascript -->
+    <script type="text/javascript" src="scripts/bootstrap_js/bootstrap.js"></script>
+    <!-- Ajax Api php -->
+    <script type="text/javascript" src="scripts/api.js"></script> 
+
+
+      <script type="text/javascript">
+        $('.dropdown-toggle').dropdown();
+        $(window).load(function(){
+          $('#main-content').hide();
+          $('#loading').hide();
+          checkForLogin();
+          // loadUserName();
+          getFacultyNotifications();
+          loadFacultyPrevCoursePage();
+          getFacultyCurrentCourses("home");
+          //checkForYearandCourse();
+          loadResp();
+        });    
+      </script>
+  </body>
+  
+</html>

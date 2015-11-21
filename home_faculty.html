@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html style="height:100%">
+ 
+	<head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Integrated Campus</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/logo16.png" />
+		
+		<!--                       CSS                       -->
+	       
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap_css/bootstrap.css" type="text/css" media="screen" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        		
+		
+	</head>
+  
+	<body>
+        <!-- Navbar -->
+        <div class="row-fluid">
+            <div class="navbar  navbar-inverse">
+                <div class="navbar-inner" id="collapse" style="padding-left:10px">
+                    <a class="brand" href="#">Integrated Campus</a>
+                    <ul class="nav">
+                        <li class="divider-vertical"></li>
+                        
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                                Courses <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" id="courseList" aria-labelledby="dLabel">
+
+                              <!-- Generate by javascript -->
+                            </ul>
+
+                        </li>
+                        <li><a href="faculty_previouscourse.html">Previous Courses</a></li>
+                        <li><a href="tt_faculty.html">Timetable</a></li>
+                        
+                        <li class="divider-vertical"></li>
+                    </ul>
+                    <ul class="nav pull-right" style="padding-right:50px">
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" id="navName" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                                ---<b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <!-- <li><a href="#">Edit Profile</a></li> -->
+                                <li><a href="#changePassModal" data-toggle="modal">Change Password</a></li>
+                                <li><a href="javascript:logout()">Logout</a></li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+
+        <!-- Loading Animation -->
+        <div class="span10 offset2"  id="loadingHomeContent" style="text-align:center">
+                <img src="img/loading.gif">
+        </div>
+        <!-- End of Loading Animation -->
+
+        <div class="row-fluid">
+            <!-- Main Content -->
+            
+            <div class = "span10" style="padding-left:10px"  id="homeContent">
+                <div class="well" id="uName"></div>
+                <div class="well">
+                    <table style="width:100%; cell-spacing:20px">
+                        <tr>
+                            <td>ID:</td>
+                            <td id="uID"></td>
+                        </tr>
+                        <tr>
+                            <td>Faculty Block Room No.:</td>
+                            <td id="uFBRoomNo"></td>
+                        </tr>
+                        <tr>
+                            <td>Email ID:</td>
+                            <td id="uEmail"></td>
+                        </tr>
+                        <tr>
+                            <td>Contact No.:</td>
+                            <td id="uContact"></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth:</td>
+                            <td id="uDOB"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Notice Board -->
+            <div class="span2 text-center" id="notice" style="background-color:#f8f8f8; color:#ccc; height:80%; position:fixed;top:50px; right:10px; border-radius:10px; overflow-y:scroll">
+                <div style="background-color:#f2f2f2; border-radius:10px">Notice Board</div>
+                <div id="notifications">
+                    <br><br><br><br>Loading Notice Board
+                </div>
+            </div>  
+
+        </div>
+        <!-- Footer -->
+        <footer class="row-fluid navbar-fixed-bottom" style="background-color:#111;color:#ccc">
+            <div class="span12 text-center" style="font-size:10px">
+                All Rights reserved with the Integrated Campus,Team-2 2010 Batch DA-IICT Gandhinagar
+            </div>
+        </footer>
+
+
+        <!-- Change Pass Modal -->
+        <div id="changePassModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h4 id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body" align="center">
+                <div id="changePassDiv">
+                    <form>
+                        <input id="oldPass" type="password" name="oldPassword" placeholder="Old Password"><br>
+                        <input id="newPass1" type="password" name="newPassword" placeholder="New Password"><br>
+                        <input id="newPass2" type="password" name="confPassword" placeholder="Confirm Password">
+                    </form>
+                </div>
+                <div   id="changingPass" style="text-align:center;display:none">
+                    <img src="img/loading.gif">
+                </div>
+                <span id="passMsg"></span>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <a class="btn btn-primary" href="javascript:changePassword()">Change</a>
+            </div>
+        </div>
+
+
+
+        <!--                       Javascripts                       -->
+        <!-- API -->
+        <script type="text/javascript" src="scripts/api.js"></script>
+        <!-- Functions -->
+        <script type="text/javascript" src="scripts/functions.js"></script>
+        <!-- jQuery -->
+        <script type="text/javascript" src="scripts/jquery.js"></script>       
+        <!-- Bootstrap Javascript -->
+        <script type="text/javascript" src="scripts/bootstrap_js/bootstrap.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                checkForLogin();
+                getFacultyNotifications();
+                loadFacultyHomePage();
+                loadResp();
+            });
+        
+            
+        </script>
+
+
+	</body>
+  
+</html>

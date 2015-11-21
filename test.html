@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Login: Integrated Campus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo16.png" />
+
+    <!-- Le styles -->
+    <link href="css/bootstrap_css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="css/bootstrap_css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script type="text/javascript" src="scripts/jquery.js"></script>       
+    <!-- Bootstrap Javascript -->
+    <script type="text/javascript" src="scripts/bootstrap_js/bootstrap.js"></script>
+    <!-- Ajax Api php -->
+    <script type="text/javascript" src="scripts/api.js"></script> 
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">Integrated Campus</a>
+                <div class="nav-collapse collapse">
+                    <form action="php/api.php" class="navbar-form pull-right" method="post">
+                      <input class="span2" type="text" name="username" id="username" placeholder="User-ID">
+                      <input class="span2" type="password" name="password" id"password" placeholder="Password">
+                      <input type="submit" id="login" class="btn" value="Sign-in">
+                    </form>
+              </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $("#login").on('click',login);
+    </script>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Integrated Campus</h1>
+        <p>A platform which integrates all the essential requirements of an academic institutes from both the student's and the faculty's perspective.</p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Attendance</h2>
+          <p>Students can view their attendance any time in a clean format and can recieve notifications when the attendance goes low. On the faculty side the platform provide a very easy interface to upload the attendance information.</p>
+        </div>
+        <div class="span4">
+          <h2>Polls</h2>
+          <p>Now any faculty can quickly take feedback or ask some quick question to the students through poll and act accordingly during the course. Polls are completely anonymous so students you dont need to worry.</p>
+       </div>
+        <div class="span4">
+          <h2>Files</h2>
+          <p>All the course related material can be accessed by the students in a clean weekly sorted format.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        &copy Team-2 SEN Winter 2013, DA-IICT Gandhinagar
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

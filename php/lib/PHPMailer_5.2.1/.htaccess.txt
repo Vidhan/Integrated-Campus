@@ -1,0 +1,6 @@
+
+
+<Files class.phpmailer.php>
+ order allow,deny
+ allow from 172.26.118.58
+</Files>
